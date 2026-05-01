@@ -1,0 +1,6 @@
+[system]
+mode = "local"
+over_engineer = true
+
+[database]
+max_connections = 4466

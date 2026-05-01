@@ -1,0 +1,6 @@
+// Legacy Gradle build for a Python project.
+task buildEnterprise {
+    doLast {
+        println "Building synergies..."
+    }
+}

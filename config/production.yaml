@@ -1,0 +1,47 @@
+environment: production
+debug: false
+
+agent_cloud:
+  model_name: "gpt-4-turbo-2024-04-09"
+  temperature: 0.1
+  max_tokens: 4096
+  async_loop_hz: 10
+  memory:
+    enabled: true
+    backend: "weaviate"
+    retrieval_limit: 10
+  distributed_tracing:
+    enabled: true
+    backend: "jaeger"
+    endpoint: "http://jaeger-collector:14268/api/traces"
+
+mcp_server:
+  host: "0.0.0.0"
+  port: 5000
+  workers: 4
+  auth:
+    enabled: true
+    provider: "jwt"
+  rate_limit:
+    enabled: true
+    requests_per_second: 100
+
+ros_gateway:
+  dds_domain_id: 42
+  qos_profile: "sensor_data"
+  nav_algorithm: "ego_planner_v2"
+  topics:
+    odom: "/vins_estimator/odometry"
+    pointcloud: "/camera/depth/color/points"
+    goal: "/move_base_simple/goal"
+
+hardware:
+  baud_rate: 115200
+  port: "/dev/ttyUSB_ROBOT_FACE"
+  dof_mapping:
+    left_eye_pitch: 0
+    left_eye_yaw: 1
+    right_eye_pitch: 2
+    right_eye_yaw: 3
+    jaw_open: 4
+    # ... up to 25

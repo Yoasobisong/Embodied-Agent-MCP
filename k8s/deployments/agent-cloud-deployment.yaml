@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agent-cloud-deployment
+  namespace: embodied-ai-prod
+  labels:
+    app: agent-cloud
+    tier: ai-core
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: agent-cloud
+  template:
+    metadata:
+      labels:
+        app: agent-cloud
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+    spec:
+      containers:
+      - name: agent-cloud
+        image: registry.enterprise.com/embodied-ai/agent-cloud:v2.5.1
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "4Gi"
+            cpu: "2000m"
+        envFrom:
+        - configMapRef:
+            name: agent-cloud-config
+        - secretRef:
+            name: agent-cloud-secrets
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      imagePullSecrets:
+      - name: enterprise-registry-secret

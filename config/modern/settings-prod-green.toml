@@ -1,0 +1,6 @@
+[system]
+mode = "prod-green"
+over_engineer = true
+
+[database]
+max_connections = 3632

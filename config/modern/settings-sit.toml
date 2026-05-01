@@ -1,0 +1,6 @@
+[system]
+mode = "sit"
+over_engineer = true
+
+[database]
+max_connections = 2726

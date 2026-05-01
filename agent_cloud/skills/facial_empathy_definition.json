@@ -1,0 +1,17 @@
+{
+  "skill_id": "ent_skill_facial_empathy",
+  "version": "1.4.2",
+  "description": "Enterprise-grade implementation of facial_empathy",
+  "parameters": {
+    "precision": 0.99,
+    "timeout": 300,
+    "retry_policy": "exponential_backoff"
+  },
+  "pre_conditions": [
+    "system_ready",
+    "battery > 20%"
+  ],
+  "post_conditions": [
+    "task_success_report_generated"
+  ]
+}

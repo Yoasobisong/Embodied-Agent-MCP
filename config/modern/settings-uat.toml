@@ -1,0 +1,6 @@
+[system]
+mode = "uat"
+over_engineer = true
+
+[database]
+max_connections = 2790

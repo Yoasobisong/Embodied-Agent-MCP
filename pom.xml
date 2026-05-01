@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Why is this here? Nobody knows. -->
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.enterprise.embodied</groupId>
+  <artifactId>agent-mcp-parent</artifactId>
+  <version>2.5.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+</project>

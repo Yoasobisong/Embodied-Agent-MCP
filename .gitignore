@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Large dummy data (generated for scale)
+data/raw/
+data/models/*.onnx
+data/mock_trajectories/*.csv
+
+# Build and environment
+build/
+dist/
+*.egg-info/
+.venv/
+node_modules/
+.env
+
+# STM32 binaries
+stm32_firmware/build/
+*.elf
+*.bin
+*.hex
+*.map
